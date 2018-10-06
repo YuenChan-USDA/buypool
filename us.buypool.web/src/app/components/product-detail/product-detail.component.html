@@ -1,0 +1,18 @@
+<ul *ngFor="let imag of product.ProductImages">
+    <a [routerLink]="['product-detail',product.Id]"> 
+        <li>
+              <img  src="http://image.buypool.us/{{imag.ImageUrl}}">
+          </li>
+    </a>       
+</ul> 
+<div>
+    <div [innerHTML]="product.ProductName"></div>
+    <div [innerHTML]="product.ProductDescription"></div>
+    <span class="index-goods-price"><b>$</b><span>{{product.OfferPrice}}</span></span>
+    <span class="index-goods-mprice">$<span>{{product.ListPrice}}</span></span>
+    <ul *ngFor="let bullet of product.ProductBullets">
+            <li>
+                  {{bullet.Text}}
+            </li>    
+    </ul>     
+</div>

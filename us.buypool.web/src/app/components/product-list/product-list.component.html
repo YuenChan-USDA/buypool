@@ -1,0 +1,12 @@
+
+<ul *ngFor="let product of productList">
+    <a [routerLink]="['product-detail',product.Id]"> 
+        <li>
+              <img  src="http://image.buypool.us/{{product.MainImageUrl}}">
+              <div [innerHTML]="product.ProductName"></div>
+              <div [innerHTML]="product.ProductDescription"></div>
+              <span><b>$</b><span>{{product.OfferPrice}}</span></span>
+              <span>$<span>{{product.ListPrice}}</span></span>
+          </li>
+    </a>       
+</ul> 
