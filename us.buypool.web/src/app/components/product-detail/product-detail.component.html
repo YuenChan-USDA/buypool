@@ -1,13 +1,26 @@
 <ul *ngFor="let imag of product.ProductImages">
-    <a [routerLink]="['product-detail',product.Id]"> 
-        <li>
-              <img  src="http://image.buypool.us/{{imag.ImageUrl}}">
-          </li>
-    </a>       
+    <li>
+        <img  src="http://image.buypool.us/{{imag.ImageUrl}}">
+    </li>     
 </ul> 
 <div>
     <div [innerHTML]="product.ProductName"></div>
     <div [innerHTML]="product.ProductDescription"></div>
+
+    <div *ngFor="let attributeValue of product.ProductAttributesValues">
+        <div>
+              <div>{{attributeValue.ProductAttribute.AttributeLabel}}</div>
+        </div>   
+        <select *ngFor="let option of attributeValue.ProductAttribute.ProductAttributesOptions">
+                <option value="{{option.Id}}">
+                      {{option.Value}}
+                </option>    
+        </select> 
+        <div>{{attributeValue.Value}}</div>        
+    </div>  
+    
+    
+
     <span class="index-goods-price"><b>$</b><span>{{product.OfferPrice}}</span></span>
     <span class="index-goods-mprice">$<span>{{product.ListPrice}}</span></span>
     <ul *ngFor="let bullet of product.ProductBullets">
